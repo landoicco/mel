@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mel_app:
-    build: .
+    build: ./mel_app/
     image: mel_dev
     container_name: mel_dev_container
     ports:
@@ -12,8 +12,15 @@ services:
     image: mariadb:11.0
     container_name: mel_dev_db
     env_file:
-     - pi.env
+     - mel_db/pi.env
     ports:
      - "3306:3306"
     volumes:
-     - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+     - ./mel_db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  mel_web_app:
+    build: ./mel_web_app
+    image: mel_web_app
+    container_name: mel_web_dev_container
+    ports:
+     - "8080:80"

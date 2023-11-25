@@ -9,7 +9,7 @@ public class Main {
         // System.out.println(testAnimal);
         Cat testAnimal = new Cat(001, "Max", "male", "22-22-2222", true, null, 
             null, null, null, null);
-        Cat testAnimal2 = new Cat(001, "Kate", "female", "22-22-2222", true, null, 
+        Cat testAnimal2 = new Cat(001, "Pistacha", "female", "22-22-2222", true, null, 
         null, null, null, null);
 
         new CatJDBC().insert((Cat) testAnimal);
