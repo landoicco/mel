@@ -1,10 +1,12 @@
-import helpers.JsonFileReader;
+import helpers.JsonFileHandler;
+import helpers.AnimalFactory;
 
 public class Main {
     public static void main(String args[]) {
         System.out.println("== Animals Management app ==");
 
-        // Tests on JsonFileReader
-        System.out.println(JsonFileReader.getAnimalsMap().get("dogs"));
+        // Load JSON data and add in-memory
+        JsonFileHandler.loadJsonData();
+        AnimalFactory.createAnimalObjects();
     }
 }
