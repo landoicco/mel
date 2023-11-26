@@ -35,9 +35,9 @@ public class CatJDBC implements CatDAO {
                 String gender = rs.getString("gender");
                 String birthDate = rs.getString("birthDate");
 
-                cat = new Cat(id_cats, name, gender, birthDate, true, null, null, null, null, null);
+                // cat = new Cat(id_cats, name, gender, birthDate, true, null, null, null, null, null);
 
-                cats.add(cat);
+                // cats.add(cat);
             }
         } catch (SQLException e) {
             e.printStackTrace();

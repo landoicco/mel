@@ -31,7 +31,7 @@ public class AnimalFactory {
     }
 
     private static void createAnimalObjects(Map<String, JSONArray> animals) {
-        
+
         // Create Cat object for each cat
         animals.get("cats").forEach(c -> createCatObject((JSONObject) c));
 
@@ -40,6 +40,8 @@ public class AnimalFactory {
 
         System.out.println(getCatsSet());
         System.out.println(getDogsSet());
+
+        DatabaseHandler.storeCatsDataToDatabase(getCatsSet());
     }
 
     private static void createCatObject(JSONObject cat) {
