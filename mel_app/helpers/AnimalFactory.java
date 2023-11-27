@@ -42,6 +42,7 @@ public class AnimalFactory {
         System.out.println(getDogsSet());
 
         DatabaseHandler.storeCatsDataToDatabase(getCatsSet());
+        DatabaseHandler.storeDogsDataToDatabase(getDogsSet());
     }
 
     private static void createCatObject(JSONObject cat) {
@@ -56,7 +57,7 @@ public class AnimalFactory {
     }
 
     private static void createDogObject(JSONObject dog) {
-        // System.out.println(dog);
+        
         String name = (String) dog.get("name");
         String gender = (String) dog.get("gender");
         String birthDate = (String) dog.get("birthDate");

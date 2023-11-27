@@ -17,10 +17,3 @@ services:
      - "3306:3306"
     volumes:
      - ./mel_db/init.sql:/docker-entrypoint-initdb.d/init.sql
-
-  mel_web_app:
-    build: ./mel_web_app
-    image: mel_web_app
-    container_name: mel_web_dev_container
-    ports:
-     - "8080:80"

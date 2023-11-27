@@ -8,10 +8,10 @@ public interface CatDAO {
 
     List<Cat> select();
 
-    int insert(Cat user);
+    int insert(Cat cat);
 
-    int update(Cat user);
+    int update(Cat cat);
 
-    int delete(Cat user);
+    int delete(Cat cat);
 
 }
