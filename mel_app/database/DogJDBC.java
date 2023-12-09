@@ -2,9 +2,7 @@ package database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import animals.Dog;
@@ -52,7 +50,7 @@ public class DogJDBC implements DogDAO {
 
     @Override
     public int delete(Dog cat) {
-       return -1;
+        return -1;
     }
 
 }
