@@ -22,11 +22,11 @@ public class AnimalFactory {
         createAnimalObjects(animals);
     }
 
-    public static Set getCatsSet() {
+    public static Set<Cat> getCatsSet() {
         return cats;
     }
 
-    public static Set getDogsSet() {
+    public static Set<Dog> getDogsSet() {
         return dogs;
     }
 
@@ -57,7 +57,7 @@ public class AnimalFactory {
     }
 
     private static void createDogObject(JSONObject dog) {
-        
+
         String name = (String) dog.get("name");
         String gender = (String) dog.get("gender");
         String birthDate = (String) dog.get("birthDate");

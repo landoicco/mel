@@ -2,9 +2,7 @@ package database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import animals.Cat;
@@ -23,12 +21,9 @@ public class CatJDBC implements CatDAO {
 
     @Override
     public int insert(Cat cat) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
         int rows = 0;
-        try {
-            conn = ConnectionHandler.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT);
+        try (Connection conn = ConnectionHandler.getConnection();
+                PreparedStatement stmt = conn.prepareStatement(SQL_INSERT)) {
             stmt.setString(1, cat.getName());
             stmt.setString(2, cat.getGender());
             stmt.setString(3, cat.getBirthDate());
@@ -38,10 +33,8 @@ public class CatJDBC implements CatDAO {
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally {
-            // ConnectionHandler.close(stmt);
-            // ConnectionHandler.close(conn);
         }
+
         return rows;
     }
 
