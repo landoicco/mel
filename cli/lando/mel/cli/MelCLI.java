@@ -1,3 +1,5 @@
+package lando.mel.cli;
+
 import picocli.CommandLine;
 import static picocli.CommandLine.Command;
 import static picocli.CommandLine.Option;
@@ -39,7 +41,7 @@ public class MelCLI {
         @Override
         public void run() {
             System.out.println("Create animal called");
-            CatCLICreator.getDataFromUser();
+            // CatCLICreator.getDataFromUser();
         }
 
     }

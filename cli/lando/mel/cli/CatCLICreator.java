@@ -1,3 +1,5 @@
+package lando.mel.cli;
+
 import java.io.Console;
 
 // import helpers.JsonAnimalCreator;
