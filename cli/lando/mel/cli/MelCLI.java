@@ -5,6 +5,8 @@ import static picocli.CommandLine.Command;
 import static picocli.CommandLine.Option;
 import static picocli.CommandLine.Parameters;
 
+import lando.mel.cli.creators.CatCLICreator;
+
 public class MelCLI {
     public static void main(String[] args) {
         int exitCode = new CommandLine(new HelloCommand()).execute(args);
@@ -41,7 +43,7 @@ public class MelCLI {
         @Override
         public void run() {
             System.out.println("Create animal called");
-            // CatCLICreator.getDataFromUser();
+            CatCLICreator.getDataFromUser();
         }
 
     }

@@ -1,8 +1,6 @@
-package lando.mel.cli;
+package lando.mel.cli.creators;
 
 import java.io.Console;
-
-// import helpers.JsonAnimalCreator;
 
 public class CatCLICreator {
     public static void getDataFromUser() {
