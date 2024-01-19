@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mel_app:
-    build: ./mel_app/
+    build: .
     image: mel_dev
     container_name: mel_dev_container
     ports:
