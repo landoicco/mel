@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mel_app:
-    build: ./mel_app/
+    build: .
     image: mel_dev
     container_name: mel_dev_container
     ports:
@@ -15,11 +15,11 @@ services:
     image: mariadb:11.0
     container_name: mel_dev_db
     env_file:
-      - mel_db/pi.env
+      - database/pi.env
     ports:
       - "3306:3306"
     volumes:
-      - ./mel_db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test: "/usr/bin/mariadb --user=root --password=admin --execute \"SHOW DATABASES;\""
       interval: 2s

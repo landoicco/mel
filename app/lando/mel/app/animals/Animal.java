@@ -1,4 +1,4 @@
-package animals;
+package lando.mel.app.animals;
 
 import java.util.List;
 

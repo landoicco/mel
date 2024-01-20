@@ -1,4 +1,4 @@
-package helpers;
+package lando.mel.app.helpers;
 
 import java.util.Map;
 import java.util.Set;
@@ -6,9 +6,9 @@ import java.util.HashSet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import animals.Cat;
-import animals.Dog;
-import animals.Animal;
+import lando.mel.app.animals.Cat;
+import lando.mel.app.animals.Dog;
+import lando.mel.app.animals.Animal;
 
 public class AnimalFactory {
 
@@ -18,15 +18,17 @@ public class AnimalFactory {
     private static Set<Dog> dogs = new HashSet<>();
 
     public static void createAnimalObjects() {
-        Map<String, JSONArray> animals = JsonFileHandler.getAnimals();
-        createAnimalObjects(animals);
+        // Map<String, JSONArray> animals = JsonFileHandler.getAnimals();
+        // createAnimalObjects(animals);
     }
 
-    public static Set getCatsSet() {
+    public static Set<Cat> getCatsSet() {
+        System.out.println("AnimalFactory.getCatsSet() method called");
+        System.out.println(new Cat(0, "test", "test", "test", true));
         return cats;
     }
 
-    public static Set getDogsSet() {
+    public static Set<Dog> getDogsSet() {
         return dogs;
     }
 
@@ -41,8 +43,8 @@ public class AnimalFactory {
         System.out.println(getCatsSet());
         System.out.println(getDogsSet());
 
-        DatabaseHandler.storeCatsDataToDatabase(getCatsSet());
-        DatabaseHandler.storeDogsDataToDatabase(getDogsSet());
+        // DatabaseHandler.storeCatsDataToDatabase(getCatsSet());
+        // DatabaseHandler.storeDogsDataToDatabase(getDogsSet());
     }
 
     private static void createCatObject(JSONObject cat) {
@@ -57,7 +59,7 @@ public class AnimalFactory {
     }
 
     private static void createDogObject(JSONObject dog) {
-        
+
         String name = (String) dog.get("name");
         String gender = (String) dog.get("gender");
         String birthDate = (String) dog.get("birthDate");

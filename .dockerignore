@@ -1,0 +1,9 @@
+.dockerignore
+.gitignore
+Dockerfile
+README.md
+docker-compose.yml
+database/
+app/README.md
+cli/README.md
+picocli/README.md
