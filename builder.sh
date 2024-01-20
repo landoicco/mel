@@ -21,7 +21,7 @@ javac \
     --module-path mods -d cli/target cli/lando/mel/cli/creators/**.java \
     cli/lando/mel/cli/MelCLI.java cli/module-info.java \
 
-jar -cvf mods/cli.jar -C cli/target .
+jar -cvf mods/lando.mel.cli.jar -C cli/target .
 
 # Compile and JAR the lando.mel.app
 
@@ -31,7 +31,7 @@ javac \
     app/lando/mel/app/database/ConnectionHandler.java \
     app/lando/mel/app/Main.java app/module-info.java \
 
-jar -cvf mods/app.jar -C app/target .
+jar -cvf mods/lando.mel.app.jar -C app/target .
 
 # This line run the app
 # java --module-path mods --module lando.mel.app/lando.mel.app.Main
