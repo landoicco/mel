@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
 echo -e \
-" \
+    " \
 _  _ ____ _       ___  _  _ _ _    ___  ____ ____    ____ ____ ____ _ ___  ___ \
 |\/| |___ |       |__] |  | | |    |  \ |___ |__/    [__  |    |__/ | |__]  |  \
 |  | |___ |___    |__] |__| | |___ |__/ |___ |  \    ___] |___ |  \ | |     | \
@@ -11,7 +11,7 @@ _  _ ____ _       ___  _  _ _ _    ___  ____ ____    ____ ____ ____ _ ___  ___ \
 
 javac \
     --module-path mods -d picocli/target \
-    picocli/picocli/CommandLine.java picocli/module-info.java \
+    picocli/picocli/CommandLine.java picocli/module-info.java
 
 jar -cvf mods/picocli.jar -C picocli/target .
 
@@ -19,7 +19,7 @@ jar -cvf mods/picocli.jar -C picocli/target .
 
 javac \
     --module-path mods -d cli/target cli/lando/mel/cli/creators/**.java \
-    cli/lando/mel/cli/MelCLI.java cli/module-info.java \
+    cli/lando/mel/cli/MelCLI.java cli/module-info.java
 
 jar -cvf mods/lando.mel.cli.jar -C cli/target .
 
@@ -29,7 +29,7 @@ javac \
     --module-path mods -d app/target app/lando/mel/app/animals/*.java \
     app/lando/mel/app/helpers/AnimalFactory.java \
     app/lando/mel/app/database/ConnectionHandler.java \
-    app/lando/mel/app/Main.java app/module-info.java \
+    app/lando/mel/app/Main.java app/module-info.java
 
 jar -cvf mods/lando.mel.app.jar -C app/target .
 

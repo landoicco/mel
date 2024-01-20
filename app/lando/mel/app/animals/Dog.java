@@ -1,9 +1,17 @@
 package lando.mel.app.animals;
 
 public class Dog extends Animal {
-    
-    public Dog(int id, String name, String gender, String birthDate, boolean alive) {
-        super(id, name, gender, birthDate, alive);
+
+    private String breed;
+
+    public Dog(String name, String gender, String birthDate, String joinerSince, String color,
+            boolean isSterilized, boolean alive, String breed) {
+        this.breed = breed;
+    }
+
+    public Dog() {
+        super();
+        this.breed = "4 legs";
     }
 
     public String toString() {
