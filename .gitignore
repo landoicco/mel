@@ -1,4 +1,4 @@
 docs/
-mods/
+# mods/
 *.class
 */target/
