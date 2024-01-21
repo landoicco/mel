@@ -7,6 +7,7 @@ public class Cat extends Animal {
     public Cat(HashMap<String, String> data) {
         super(
                 data.get("name"),
+                data.get("alias"),
                 data.get("gender"),
                 data.get("birthDate"),
                 data.get("joinerSince"),

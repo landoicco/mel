@@ -9,6 +9,7 @@ public class Main {
         System.out.println("== MEL: Animals Management app ==");
         HashMap<String, String> data = new HashMap<>();
         data.put("name", "Test");
+        data.put("alias", "testy");
         data.put("gender", "male");
         data.put("birthDate", "00-00-0000");
         data.put("joinerSince", "00-00-0000");

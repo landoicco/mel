@@ -9,6 +9,7 @@ public class Dog extends Animal {
     public Dog(HashMap<String, String> data) {
         super(
                 data.get("name"),
+                data.get("alias"),
                 data.get("gender"),
                 data.get("birthDate"),
                 data.get("joinerSince"),

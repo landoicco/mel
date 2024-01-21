@@ -6,6 +6,7 @@ public abstract class Animal {
     private int id_user;
 
     private String name;
+    private String alias;
     private String gender;
     private String birthDate;
     private String joinerSince;
@@ -17,9 +18,10 @@ public abstract class Animal {
 
     private HashMap<String, String> data;
 
-    public Animal(String name, String gender, String birthDate, String joinerSince, String color,
+    public Animal(String name, String alias, String gender, String birthDate, String joinerSince, String color,
             boolean isSterilized, boolean alive) {
         this.name = name;
+        this.alias = alias;
         this.gender = gender;
         this.birthDate = birthDate;
         this.joinerSince = joinerSince;
@@ -30,6 +32,7 @@ public abstract class Animal {
 
     public Animal() {
         this.name = "Test animal";
+        this.alias = "test";
         this.gender = "male";
         this.birthDate = "00-00-0000";
         this.joinerSince = "00-00-0000";
@@ -44,6 +47,10 @@ public abstract class Animal {
 
     public String getName() {
         return name;
+    }
+
+    public String getAlias() {
+        return alias;
     }
 
     public String getGender() {
