@@ -1,10 +1,20 @@
 package lando.mel.app.animals;
 
+import java.util.HashMap;
+
 public class Cat extends Animal {
 
-    public Cat(String name, String gender, String birthDate, String joinerSince, String color,
-            boolean isSterilized, boolean alive) {
-        super(name, gender, birthDate, joinerSince, color, isSterilized, alive);
+    public Cat(HashMap<String, String> data) {
+        super(
+                data.get("name"),
+                data.get("gender"),
+                data.get("birthDate"),
+                data.get("joinerSince"),
+                data.get("color"),
+                true,
+                true);
+
+        setAnimalData(data);
     }
 
     public Cat() {
@@ -12,6 +22,6 @@ public class Cat extends Animal {
     }
 
     public String toString() {
-        return super.getSummary().toString();
+        return super.toString();
     }
 }

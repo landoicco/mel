@@ -1,23 +1,29 @@
 package lando.mel.app;
 
-import java.sql.SQLException;
+import java.util.HashMap;
 
-import lando.mel.app.database.ConnectionHandler;
-import lando.mel.app.helpers.AnimalFactory;
-// import lando.mel.app.helpers.JsonFileHandler;
+import lando.mel.app.animals.*;
 
 public class Main {
     public static void main(String args[]) {
-        System.out.println("== Animals Management app ==");
+        System.out.println("== MEL: Animals Management app ==");
+        HashMap<String, String> data = new HashMap<>();
+        data.put("name", "Test");
+        data.put("gender", "male");
+        data.put("birthDate", "00-00-0000");
+        data.put("joinerSince", "00-00-0000");
+        data.put("color", "yellow");
+        data.put("isSterilized", "true");
+        data.put("alive", "true");
+        data.put("breed", "4 legs");
+        Dog dog = new Dog(data);
+        System.out.println(dog);
+        System.out.println(new Cat());
 
-        // Load JSON data and add in-memory
-        // JsonFileHandler.loadJsonData();
-        AnimalFactory.getCatsSet();
-        
-        try {
-            System.out.println(ConnectionHandler.getConnection());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        // try {
+        // System.out.println(ConnectionHandler.getConnection());
+        // } catch (SQLException e) {
+        // e.printStackTrace();
+        // }
     }
 }

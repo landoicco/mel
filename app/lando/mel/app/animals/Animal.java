@@ -1,6 +1,6 @@
 package lando.mel.app.animals;
 
-import java.util.List;
+import java.util.HashMap;
 
 public abstract class Animal {
     private int id_user;
@@ -12,7 +12,10 @@ public abstract class Animal {
     private String color;
 
     private boolean isSterilized;
+
     private boolean alive;
+
+    private HashMap<String, String> data;
 
     public Animal(String name, String gender, String birthDate, String joinerSince, String color,
             boolean isSterilized, boolean alive) {
@@ -51,16 +54,38 @@ public abstract class Animal {
         return birthDate;
     }
 
+    public String getJoinerSince() {
+        return joinerSince;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public boolean isSterilized() {
+        return isSterilized;
+    }
+
     public boolean isAlive() {
         return alive;
     }
 
-    protected List<Object> getSummary() {
-        return List.of(id_user, name, gender, birthDate, alive);
+    public HashMap<String, String> getAnimalData() {
+        return data;
     }
 
     public String toString() {
-        return getSummary().toString();
+        if (data == null) {
+            System.out.println("Dummy object, no data on it!");
+            return super.toString();
+        }
+        System.out.println(data.get("name") + " {");
+        data.forEach((k, v) -> System.out.println(" " + k + ": " + v));
+        System.out.println("}");
+        return super.toString();
     }
 
+    protected void setAnimalData(HashMap<String, String> data) {
+        this.data = data;
+    }
 }

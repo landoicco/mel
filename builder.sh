@@ -27,7 +27,6 @@ jar -cvf mods/lando.mel.cli.jar -C cli/target .
 
 javac \
     --module-path mods -d app/target app/lando/mel/app/animals/*.java \
-    app/lando/mel/app/helpers/AnimalFactory.java \
     app/lando/mel/app/database/ConnectionHandler.java \
     app/lando/mel/app/Main.java app/module-info.java
 
