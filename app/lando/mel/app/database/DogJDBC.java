@@ -1,11 +1,11 @@
-package database;
+package lando.mel.app.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import animals.Dog;
+import lando.mel.app.animals.Dog;
 
 public class DogJDBC implements DogDAO {
 

@@ -1,8 +1,8 @@
-package database;
+package lando.mel.app.database;
 
 import java.util.List;
 
-import animals.Cat;
+import lando.mel.app.animals.Cat;
 
 public interface CatDAO {
 

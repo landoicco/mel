@@ -1,15 +1,15 @@
-package database;
+package lando.mel.app.database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import animals.Cat;
+import lando.mel.app.animals.Cat;
 
 public class CatJDBC implements CatDAO {
 
-    private static final String SQL_SELECT = "SELECT id_cats, name, gender, birthDate FROM cats";
+    private static final String SQL_SELECT = "SELECT id_user, name, gender, birthDate FROM cats";
     private static final String SQL_INSERT = "INSERT INTO cats (name, gender, birthDate) VALUES (?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE cat SET name=?, gender=?, birthDate=?";
     private static final String SQL_DELETE = "DELETE FROM cat WHERE id_cats=?";

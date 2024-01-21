@@ -18,16 +18,21 @@ jar -cvf mods/picocli.jar -C picocli/target .
 # Compile and JAR lando.mel.cli
 
 javac \
-    --module-path mods -d cli/target cli/lando/mel/cli/creators/**.java \
+    --module-path mods -d cli/target \
+    cli/lando/mel/cli/creators/*.java \
     cli/lando/mel/cli/MelCLI.java cli/module-info.java
 
 jar -cvf mods/lando.mel.cli.jar -C cli/target .
 
 # Compile and JAR the lando.mel.app
 
+rm -rf app/target
+
 javac \
-    --module-path mods -d app/target app/lando/mel/app/animals/*.java \
-    app/lando/mel/app/database/ConnectionHandler.java \
+    --module-path mods -d app/target \
+    app/lando/mel/app/animals/*.java \
+    app/lando/mel/app/database/*.java \
+    app/lando/mel/app/helpers/*.java \
     app/lando/mel/app/Main.java app/module-info.java
 
 jar -cvf mods/lando.mel.app.jar -C app/target .

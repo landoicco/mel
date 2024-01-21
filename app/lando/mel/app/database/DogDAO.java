@@ -1,8 +1,8 @@
-package database;
+package lando.mel.app.database;
 
 import java.util.List;
 
-import animals.Dog;
+import lando.mel.app.animals.Dog;
 
 public interface DogDAO {
 

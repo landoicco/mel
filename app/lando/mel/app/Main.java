@@ -7,6 +7,8 @@ import lando.mel.app.animals.*;
 public class Main {
     public static void main(String args[]) {
         System.out.println("== MEL: Animals Management app ==");
+
+        // Create Cat and Dog object for testing...
         HashMap<String, String> data = new HashMap<>();
         data.put("name", "Test");
         data.put("alias", "testy");
@@ -20,6 +22,9 @@ public class Main {
         Dog dog = new Dog(data);
         System.out.println(dog);
         System.out.println(new Cat());
+
+
+        // Store test Cat to database
 
         // try {
         // System.out.println(ConnectionHandler.getConnection());
