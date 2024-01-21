@@ -8,6 +8,18 @@ import lando.mel.app.animals.Dog;
 
 public class DatabaseHandler {
 
+    public static void storeSingleCatDataToDatabase(Cat cat) {
+        CatJDBC catDB = new CatJDBC();
+
+        catDB.insert(cat);
+    }
+
+    public static void storeSingleDogDataToDatabase(Dog dog) {
+        DogJDBC dogDB = new DogJDBC();
+
+        dogDB.insert(dog);
+    }
+
     public static void storeCatsDataToDatabase(Set<Cat> cats) {
 
         CatJDBC catDB = new CatJDBC();

@@ -3,6 +3,7 @@ package lando.mel.app;
 import java.util.HashMap;
 
 import lando.mel.app.animals.*;
+import lando.mel.app.helpers.DatabaseHandler;
 
 public class Main {
     public static void main(String args[]) {
@@ -19,17 +20,16 @@ public class Main {
         data.put("isSterilized", "true");
         data.put("alive", "true");
         data.put("breed", "4 legs");
-        Dog dog = new Dog(data);
-        System.out.println(dog);
-        System.out.println(new Cat());
 
+        Dog dog = new Dog(data);
+        Cat cat = new Cat(data);
+
+        System.out.println(dog);
+        System.out.println(cat);
 
         // Store test Cat to database
 
-        // try {
-        // System.out.println(ConnectionHandler.getConnection());
-        // } catch (SQLException e) {
-        // e.printStackTrace();
-        // }
+        DatabaseHandler.storeSingleCatDataToDatabase(cat);
+        DatabaseHandler.storeSingleDogDataToDatabase(dog);
     }
 }
