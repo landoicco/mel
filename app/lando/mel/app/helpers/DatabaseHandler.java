@@ -38,4 +38,16 @@ public class DatabaseHandler {
         }
     }
 
+    public static void updateCat(Cat cat) {
+        CatJDBC catDB = new CatJDBC();
+
+        System.out.println(catDB.update(cat));
+    }
+
+    public static void updateDog(Dog dog) {
+        DogJDBC dogDB = new DogJDBC();
+
+        System.out.println(dogDB.update(dog));
+    }
+
 }
