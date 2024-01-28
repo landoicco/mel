@@ -1,4 +1,4 @@
-package lando.mel.cli;
+package lando.mel.cli.api;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -6,6 +6,7 @@ import static picocli.CommandLine.Option;
 import static picocli.CommandLine.Parameters;
 
 import lando.mel.cli.creators.CatCLICreator;
+import lando.mel.cli.creators.DogCLICreator;
 
 public class MelCLI {
     public static void main(String[] args) {
@@ -49,7 +50,7 @@ public class MelCLI {
                     CatCLICreator.getDataFromUser();
                     break;
                 case "dog":
-                    System.out.println("Call DogCLICreator.getDataFromUser()");
+                    DogCLICreator.getDataFromUser();
                     break;
                 default:
                     System.out.println("Animal not available");

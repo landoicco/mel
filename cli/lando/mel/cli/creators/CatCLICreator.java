@@ -31,7 +31,7 @@ public class CatCLICreator {
 
                 // Show gathered data to user
                 console.writer().println();
-                console.writer().println(LineBreak());
+                console.writer().println(LINE_BREAK);
 
                 console.writer()
                                 .println(AnsiString(
