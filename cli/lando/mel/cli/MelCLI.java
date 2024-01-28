@@ -1,7 +1,7 @@
 package lando.mel.cli;
 
 import picocli.CommandLine;
-import static picocli.CommandLine.Command;
+import picocli.CommandLine.Command;
 import static picocli.CommandLine.Option;
 import static picocli.CommandLine.Parameters;
 
@@ -39,11 +39,21 @@ public class MelCLI {
 
     @Command(name = "create", mixinStandardHelpOptions = true)
     static class CreateNewEntry implements Runnable {
+        @Parameters(index = "0", description = "Type of @|fg(green) animal|@ to create.", paramLabel = "animal")
+        private String animal;
 
         @Override
         public void run() {
-            System.out.println("Create animal called");
-            CatCLICreator.getDataFromUser();
+            switch (animal) {
+                case "cat":
+                    CatCLICreator.getDataFromUser();
+                    break;
+                case "dog":
+                    System.out.println("Call DogCLICreator.getDataFromUser()");
+                    break;
+                default:
+                    System.out.println("Animal not available");
+            }
         }
 
     }
