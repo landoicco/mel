@@ -4,4 +4,5 @@ module lando.mel.cli {
     provides lando.mel.cli.api.CLI with lando.mel.cli.implementation.MelCLI;
 
     opens lando.mel.cli.implementation to picocli;
+    opens lando.mel.cli.implementation.crud to picocli;
 }

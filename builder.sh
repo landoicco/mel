@@ -24,6 +24,7 @@ javac \
     cli/lando/mel/cli/creators/*.java \
     cli/lando/mel/cli/api/*.java \
     cli/lando/mel/cli/implementation/*.java \
+    cli/lando/mel/cli/implementation/crud/*.java \
     cli/lando/mel/cli/*.java cli/module-info.java
 
 jar -cvf mods/lando.mel.cli.jar -C cli/target .

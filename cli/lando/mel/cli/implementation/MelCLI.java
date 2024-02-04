@@ -3,11 +3,12 @@ package lando.mel.cli.implementation;
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import static picocli.CommandLine.Option;
-import static picocli.CommandLine.Parameters;
 
 import lando.mel.cli.api.CLI;
-import lando.mel.cli.creators.CatCLICreator;
-import lando.mel.cli.creators.DogCLICreator;
+import static lando.mel.cli.implementation.crud.Create.CreateNewEntry;
+import static lando.mel.cli.implementation.crud.Edit.ModifyExistingEntry;
+import static lando.mel.cli.implementation.crud.Get.SelectEntries;
+import static lando.mel.cli.implementation.crud.Delete.DeleteEntries;
 
 public class MelCLI implements CLI {
     public void SendInputsToCLI(String[] args) {
@@ -37,74 +38,5 @@ public class MelCLI implements CLI {
         @Override
         public void run() {
         }
-    }
-
-    @Command(name = "create", mixinStandardHelpOptions = true)
-    static class CreateNewEntry implements Runnable {
-        @Parameters(index = "0", description = "Type of @|fg(green) animal|@ to create.", paramLabel = "animal")
-        private String animal;
-
-        @Override
-        public void run() {
-            switch (animal) {
-                case "cat":
-                    CatCLICreator.getDataFromUser();
-                    break;
-                case "dog":
-                    DogCLICreator.getDataFromUser();
-                    break;
-                default:
-                    System.out.println("Animal not available");
-            }
-        }
-
-    }
-
-    @Command(name = "edit", mixinStandardHelpOptions = true)
-    static class ModifyExistingEntry implements Runnable {
-        @Option(names = { "-n",
-                "--name" }, defaultValue = "none", description = "Enter name or id of animal to edit", paramLabel = "name")
-        private String name;
-
-        @Override
-        public void run() {
-            System.out.println("edit animal called" + name);
-        }
-
-    }
-
-    @Command(name = "get", mixinStandardHelpOptions = true)
-    static class SelectEntries implements Runnable {
-
-        @Option(names = { "-A", "--all" }, defaultValue = "false", description = "Show all sotred data in tables")
-        private boolean all;
-
-        @Option(names = { "-n",
-                "--name" }, defaultValue = "none", description = "Name of the entry to show", paramLabel = "name")
-        private String name;
-
-        @Override
-        public void run() {
-            if (all) {
-                System.out.println("print all entries");
-                return;
-            }
-            System.out.println("Get animal called" + name);
-        }
-
-    }
-
-    @Command(name = "delete", mixinStandardHelpOptions = true)
-    static class DeleteEntries implements Runnable {
-
-        @Option(names = { "-n",
-                "--name" }, defaultValue = "none", description = "Name of the entry to show", paramLabel = "name")
-        private String name;
-
-        @Override
-        public void run() {
-            System.out.println("Delete animal called" + name);
-        }
-
     }
 }
