@@ -1,15 +1,16 @@
-package lando.mel.cli.api;
+package lando.mel.cli.implementation;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import static picocli.CommandLine.Option;
 import static picocli.CommandLine.Parameters;
 
+import lando.mel.cli.api.CLI;
 import lando.mel.cli.creators.CatCLICreator;
 import lando.mel.cli.creators.DogCLICreator;
 
-public class MelCLI {
-    public static void main(String[] args) {
+public class MelCLI implements CLI {
+    public void SendInputsToCLI(String[] args) {
         int exitCode = new CommandLine(new HelloCommand()).execute(args);
         System.exit(exitCode);
     }
