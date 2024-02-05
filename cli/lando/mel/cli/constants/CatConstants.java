@@ -21,7 +21,7 @@ public class CatConstants {
                         " @|green alive|@            # Enter (true) for yes, (false) for no",
                         LINE_BREAK);
 
-        // Expected cat data by lando.mel.cli
+        // Expected cat data by lando.mel.app
         public final static List<String> CAT_DATA_FIELDS = List.of(
                         "name",
                         "alias",

@@ -15,9 +15,10 @@ import static lando.mel.cli.implementation.crud.Get.SelectEntries;
 import static lando.mel.cli.implementation.crud.Delete.DeleteEntries;
 
 public class MelCLI implements CLI {
-    public void GatherDataWithCLI(String[] args) {
-        int exitCode = new CommandLine(new HelloCommand()).execute(args);
-        System.exit(exitCode);
+    public HashMap<String, String> GatherDataWithCLI(String[] args) {
+        new CommandLine(new HelloCommand()).execute(args);
+
+        return getMapData();
     }
 
     public HashMap<String, String> getMapData() {

@@ -22,7 +22,7 @@ public class DogConstants {
                         " @|green alive|@            # Enter (true) for yes, (false) for no",
                         LINE_BREAK);
 
-        // Expected dog data by lando.mel.cli
+        // Expected dog data by lando.mel.app
         public final static List<String> DOG_DATA_FIELDS = List.of(
                         "name",
                         "alias",

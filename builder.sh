@@ -7,6 +7,12 @@ _  _ ____ _       ___  _  _ _ _    ___  ____ ____    ____ ____ ____ _ ___  ___ \
 |  | |___ |___    |__] |__| | |___ |__/ |___ |  \    ___] |___ |  \ | |     | \
 "
 
+# Delete previous builds
+
+rm mods/lando.mel.app.jar mods/lando.mel.cli.jar mods/picocli.jar
+
+rm -rf app/target cli/target picocli/target
+
 # Compile and JAR picocli
 
 javac \
