@@ -1,7 +1,8 @@
 module lando.mel.cli {
-    exports lando.mel.cli;
-
-    opens lando.mel.cli to picocli;
-
     requires picocli;
+
+    provides lando.mel.cli.api.CLI with lando.mel.cli.implementation.MelCLI;
+
+    opens lando.mel.cli.implementation to picocli;
+    opens lando.mel.cli.implementation.crud to picocli;
 }
