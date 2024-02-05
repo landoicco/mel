@@ -4,16 +4,24 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import static picocli.CommandLine.Option;
 
+import java.util.HashMap;
+
 import lando.mel.cli.api.CLI;
+import lando.mel.cli.utils.DataBucket;
+
 import static lando.mel.cli.implementation.crud.Create.CreateNewEntry;
 import static lando.mel.cli.implementation.crud.Edit.ModifyExistingEntry;
 import static lando.mel.cli.implementation.crud.Get.SelectEntries;
 import static lando.mel.cli.implementation.crud.Delete.DeleteEntries;
 
 public class MelCLI implements CLI {
-    public void SendInputsToCLI(String[] args) {
+    public void GatherDataWithCLI(String[] args) {
         int exitCode = new CommandLine(new HelloCommand()).execute(args);
         System.exit(exitCode);
+    }
+
+    public HashMap<String, String> getMapData() {
+        return DataBucket.getData();
     }
 
     @Command(subcommands = {

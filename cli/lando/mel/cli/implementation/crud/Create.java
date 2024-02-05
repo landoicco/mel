@@ -1,7 +1,11 @@
 package lando.mel.cli.implementation.crud;
 
+import java.util.HashMap;
+
 import lando.mel.cli.creators.CatCLICreator;
 import lando.mel.cli.creators.DogCLICreator;
+import lando.mel.cli.utils.DataBucket;
+
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
@@ -15,10 +19,14 @@ public class Create {
         public void run() {
             switch (animal) {
                 case "cat":
-                    CatCLICreator.getDataFromUser();
+                    HashMap<String, String> catData;
+                    catData = CatCLICreator.getDataFromUser();
+                    DataBucket.setData(catData);
                     break;
                 case "dog":
-                    DogCLICreator.getDataFromUser();
+                    HashMap<String, String> dogData;
+                    dogData = DogCLICreator.getDataFromUser();
+                    DataBucket.setData(dogData);
                     break;
                 default:
                     System.out.println("Animal not available");
