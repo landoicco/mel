@@ -2,11 +2,11 @@ package lando.mel.app;
 
 import java.util.HashMap;
 
-import lando.mel.app.animals.*;
-import lando.mel.app.helpers.DatabaseHandler;
+import lando.mel.cli.implementation.MelCLI;
 
 public class Main {
     public static void main(String args[]) {
+        MelCLI cli = new MelCLI();
         System.out.println("== MEL: Animals Management app ==");
 
         // Create Cat and Dog object for testing...
@@ -32,24 +32,7 @@ public class Main {
         data2.put("alive", "true");
         data2.put("breed", "4 legs");
 
-        Cat cat = new Cat(data);
-        Cat cat2 = new Cat(data2);
+        System.out.println("This code is called from Main in app  ==> " + cli.GatherDataWithCLI(args));
 
-        Dog dog = new Dog(data);
-        Dog dog2 = new Dog(data2);
-
-        System.out.println(cat);
-        System.out.println(dog);
-
-        // Store test Cat to database
-
-        DatabaseHandler.storeSingleCatDataToDatabase(cat);
-        DatabaseHandler.storeSingleCatDataToDatabase(cat2);
-
-        DatabaseHandler.storeSingleDogDataToDatabase(dog);
-        DatabaseHandler.storeSingleDogDataToDatabase(dog2);
-
-        DatabaseHandler.updateCat(cat);
-        DatabaseHandler.updateDog(dog);
     }
 }
