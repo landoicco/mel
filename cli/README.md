@@ -23,7 +23,7 @@ jar -cvf mods/cli.jar -C cli/target .
 To run this module jar file, run:
 
 ```
-java --module-path mods --module lando.mel.cli/lando.mel.cli.MelCLI -h
+java --module-path mods --module lando.mel.cli/lando.mel.cli.Main -h
 ```
 
 ## Extra notes

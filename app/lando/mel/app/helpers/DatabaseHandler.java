@@ -1,12 +1,24 @@
-package helpers;
+package lando.mel.app.helpers;
 
 import java.util.Set;
-import database.CatJDBC;
-import database.DogJDBC;
-import animals.Cat;
-import animals.Dog;
+import lando.mel.app.database.CatJDBC;
+import lando.mel.app.database.DogJDBC;
+import lando.mel.app.animals.Cat;
+import lando.mel.app.animals.Dog;
 
 public class DatabaseHandler {
+
+    public static void storeSingleCatDataToDatabase(Cat cat) {
+        CatJDBC catDB = new CatJDBC();
+
+        catDB.insert(cat);
+    }
+
+    public static void storeSingleDogDataToDatabase(Dog dog) {
+        DogJDBC dogDB = new DogJDBC();
+
+        dogDB.insert(dog);
+    }
 
     public static void storeCatsDataToDatabase(Set<Cat> cats) {
 
@@ -24,6 +36,18 @@ public class DatabaseHandler {
         for (Dog dog : dogs) {
             dogDB.insert(dog);
         }
+    }
+
+    public static void updateCat(Cat cat) {
+        CatJDBC catDB = new CatJDBC();
+
+        System.out.println(catDB.update(cat));
+    }
+
+    public static void updateDog(Dog dog) {
+        DogJDBC dogDB = new DogJDBC();
+
+        System.out.println(dogDB.update(dog));
     }
 
 }

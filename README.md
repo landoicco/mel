@@ -25,7 +25,6 @@ add Docker will do the rest.
 * All the project works with Docker Compose
 
 ### Issues
-* Consider get rid of `org.json.simple` dependency, we really don't need it
 * Stabilize `lando.mel.app`, make it functional
 * Add more functionality to `lando.mel.cli`
 * Stabilize connection between `lando.mel.app` and `lando.mel.cli`
