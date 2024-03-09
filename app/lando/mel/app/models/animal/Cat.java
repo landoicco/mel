@@ -1,4 +1,4 @@
-package lando.mel.app.animals;
+package lando.mel.app.models.animal;
 
 import java.util.List;
 import java.util.Set;
@@ -21,10 +21,11 @@ public class Cat extends Animal {
     }
 
     // public List<Object> getSummary() {
-    //     List<Object> summary = List.of(super.getSummary(), breed, eyeColor, colors, pathologies,
-    //             vaccineRecord.toString());
+    // List<Object> summary = List.of(super.getSummary(), breed, eyeColor, colors,
+    // pathologies,
+    // vaccineRecord.toString());
 
-    //     return summary;
+    // return summary;
     // }
 
     public String toString() {

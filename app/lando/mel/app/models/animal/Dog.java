@@ -1,4 +1,4 @@
-package lando.mel.app.animals;
+package lando.mel.app.models.animal;
 
 public class Dog extends Animal {
     

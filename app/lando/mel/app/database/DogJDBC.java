@@ -9,10 +9,10 @@ import animals.Dog;
 
 public class DogJDBC implements DogDAO {
 
-    private static final String SQL_SELECT = "SELECT id_cats, name, gender, birthDate FROM cats";
+    private static final String SQL_SELECT = "SELECT id_dog, name, gender, birthDate FROM dogs";
     private static final String SQL_INSERT = "INSERT INTO dogs (name, gender, birthDate) VALUES (?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE cat SET name=?, gender=?, birthDate=?";
-    private static final String SQL_DELETE = "DELETE FROM cat WHERE id_cats=?";
+    private static final String SQL_UPDATE = "UPDATE dog SET name=?, gender=?, birthDate=?";
+    private static final String SQL_DELETE = "DELETE FROM dog WHERE id_dog=?";
 
     @Override
     public List<Dog> select() {
@@ -44,12 +44,12 @@ public class DogJDBC implements DogDAO {
     }
 
     @Override
-    public int update(Dog cat) {
+    public int update(Dog dog) {
         return -1;
     }
 
     @Override
-    public int delete(Dog cat) {
+    public int delete(Dog dog) {
         return -1;
     }
 

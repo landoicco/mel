@@ -6,9 +6,9 @@ import java.util.HashSet;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import lando.mel.app.animals.Cat;
-import lando.mel.app.animals.Dog;
-import lando.mel.app.animals.Animal;
+import lando.mel.app.models.animal.Animal;
+import lando.mel.app.models.animal.Cat;
+import lando.mel.app.models.animal.Dog;
 
 public class AnimalFactory {
 

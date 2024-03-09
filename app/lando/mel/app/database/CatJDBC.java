@@ -9,10 +9,10 @@ import animals.Cat;
 
 public class CatJDBC implements CatDAO {
 
-    private static final String SQL_SELECT = "SELECT id_cats, name, gender, birthDate FROM cats";
+    private static final String SQL_SELECT = "SELECT id_cat, name, gender, birthDate FROM cats";
     private static final String SQL_INSERT = "INSERT INTO cats (name, gender, birthDate) VALUES (?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE cat SET name=?, gender=?, birthDate=?";
-    private static final String SQL_DELETE = "DELETE FROM cat WHERE id_cats=?";
+    private static final String SQL_DELETE = "DELETE FROM cat WHERE id_cat=?";
 
     @Override
     public List<Cat> select() {
