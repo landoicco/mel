@@ -1,34 +1,39 @@
 package lando.mel.app.models.animal;
 
-import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 public class Cat extends Animal {
 
-    // private String breed;
-    // private String eyeColor;
-    // private Set<String> colors;
-    // private Set<String> pathologies;
-    // private Object vaccineRecord;
+    private final String colorPattern;
+    private final String colors;
 
-    public Cat(int id, String name, String gender, String birthDate, boolean alive) {
-        super(id, name, gender, birthDate, alive);
-        // this.breed = breed;
-        // this.eyeColor = eyeColor;
-        // this.colors = colors;
-        // this.pathologies = pathologies;
-        // this.vaccineRecord = vaccineRecord;
+    public Cat(int id, char gender, boolean alive, String name, String alias, String colorPattern, String colors) {
+        super(id, gender, alive, name, alias);
+        this.colorPattern = colorPattern;
+        this.colors = colors;
     }
 
-    // public List<Object> getSummary() {
-    // List<Object> summary = List.of(super.getSummary(), breed, eyeColor, colors,
-    // pathologies,
-    // vaccineRecord.toString());
+    public String getColorPattern() {
+        return colorPattern;
+    }
 
-    // return summary;
-    // }
+    public String getColors() {
+        return colors;
+    }
+
+    public Map<String, Object> getDataMap() {
+        Map<String, Object> catData = getParentAnimalClassDataMap();
+        catData.put("colorPattern", colorPattern);
+        catData.put("colors", colors);
+        return catData;
+    }
 
     public String toString() {
-        return super.getSummary().toString();
+        return "Cat Data -> " + getDataMap().toString();
+    }
+
+    public static Cat getDummyCat() {
+        return new Cat(-1, 'f', true, "Testy test",
+                "test cat", "one color", "red,white");
     }
 }

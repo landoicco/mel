@@ -1,48 +1,67 @@
 package lando.mel.app.models.animal;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Animal {
-    private int id;
-    private String name;
-    private String gender;
-    private String birthDate;
-    private boolean alive;
+    private final int id;
+    private final char gender;
+    private final boolean alive;
+    private final String name, alias;
+    // private final Date birthDate, joinerSince, trackingSince;
 
-    public Animal(int id, String name, String gender, String birthDate, boolean alive) {
+    private final Map<String, Object> data;
+
+    protected Animal(int id, char gender, boolean alive, String name, String alias) {
         this.id = id;
-        this.name = name;
         this.gender = gender;
-        this.birthDate = birthDate;
         this.alive = alive;
+        this.name = name;
+        this.alias = alias;
+        // this.birthDate = Date(birthDate); TODO: Add logic to parse a String to Date
+        // this.joinerSince = joinerSince;
+        // trackingSince Should be calculated automatically when register is created!
+
+        // Create data object
+        HashMap<String, Object> catData = new HashMap<String, Object>();
+        catData.put("id", id);
+        catData.put("gender", gender);
+        catData.put("alive", id);
+        catData.put("name", name);
+        catData.put("alias", alias);
+        // TODO: Add Date objects here
+
+        this.data = catData;
+
     }
 
     public int getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getGender() {
+    public char getGender() {
         return gender;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
     }
 
     public boolean isAlive() {
         return alive;
     }
 
-    protected List<Object> getSummary() {
-        return List.of(id, name, gender, birthDate, alive);
+    public String getName() {
+        return name;
     }
 
-    public String toString() {
-        return getSummary().toString();
+    public String getAlias() {
+        return alias;
     }
+
+    protected Map<String, Object> getParentAnimalClassDataMap() {
+        return data;
+    }
+
+    // Force Animal objects to offers methods to describe themselves
+    public abstract Map<String, Object> getDataMap();
+
+    public abstract String toString();
 
 }
