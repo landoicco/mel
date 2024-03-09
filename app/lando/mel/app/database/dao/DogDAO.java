@@ -1,4 +1,4 @@
-package database;
+package lando.mel.app.database.dao;
 
 import java.util.List;
 
