@@ -1,37 +1,43 @@
 package lando.mel.app.models.animal;
 
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Animal {
     private final int id;
     private final char gender;
-    private final boolean alive;
+    private final boolean alive, canBeget;
     private final String name, alias;
-    // private final Date birthDate, joinerSince, trackingSince;
+    private final LocalDate birthDate, joinerSince, trackingSince;
 
     private final Map<String, Object> data;
 
-    protected Animal(int id, char gender, boolean alive, String name, String alias) {
+    protected Animal(int id, char gender, boolean alive, boolean canBeget, String name, String alias, String birthDate,
+            String joinerSince) {
         this.id = id;
         this.gender = gender;
         this.alive = alive;
+        this.canBeget = canBeget;
         this.name = name;
         this.alias = alias;
-        // this.birthDate = Date(birthDate); TODO: Add logic to parse a String to Date
-        // this.joinerSince = joinerSince;
-        // trackingSince Should be calculated automatically when register is created!
+        this.birthDate = localDateFromString(birthDate);
+        this.joinerSince = localDateFromString(joinerSince);
+        this.trackingSince = LocalDate.now();
 
         // Create data object
-        HashMap<String, Object> catData = new HashMap<String, Object>();
-        catData.put("id", id);
-        catData.put("gender", gender);
-        catData.put("alive", id);
-        catData.put("name", name);
-        catData.put("alias", alias);
-        // TODO: Add Date objects here
+        HashMap<String, Object> animalData = new HashMap<String, Object>();
+        animalData.put("id", id);
+        animalData.put("gender", gender);
+        animalData.put("alive", alive);
+        animalData.put("canBeget", canBeget);
+        animalData.put("name", name);
+        animalData.put("alias", alias);
+        animalData.put("birthDate", birthDate);
+        animalData.put("joinerSince", joinerSince);
+        animalData.put("trackingSince", trackingSince);
 
-        this.data = catData;
+        this.data = animalData;
 
     }
 
@@ -47,6 +53,10 @@ public abstract class Animal {
         return alive;
     }
 
+    public boolean canBeget() {
+        return canBeget;
+    }
+
     public String getName() {
         return name;
     }
@@ -55,13 +65,28 @@ public abstract class Animal {
         return alias;
     }
 
-    protected Map<String, Object> getParentAnimalClassDataMap() {
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public LocalDate getJoinerSince() {
+        return joinerSince;
+    }
+
+    public LocalDate getTrackingSince() {
+        return trackingSince;
+    }
+
+    protected Map<String, Object> getDataMap() {
         return data;
     }
 
-    // Force Animal objects to offers methods to describe themselves
-    public abstract Map<String, Object> getDataMap();
-
-    public abstract String toString();
-
+    // Utility method to create LocalDate objects
+    private LocalDate localDateFromString(String str) {
+        String[] arr = str.split("-");
+        return LocalDate.of(
+                Integer.valueOf(arr[0]), // Year
+                Integer.valueOf(arr[1]), // Month
+                Integer.valueOf(arr[2])); // Day
+    }
 }

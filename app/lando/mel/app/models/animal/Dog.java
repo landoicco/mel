@@ -2,18 +2,20 @@ package lando.mel.app.models.animal;
 
 import java.util.Map;
 
-public class Dog extends Animal {
+public final class Dog extends Animal {
 
     private final String breed;
     private final String colors;
 
-    public Dog(int id, char gender, boolean alive, String name, String alias, String breed, String colors) {
-        super(id, gender, alive, name, alias);
+    public Dog(int id, char gender, boolean alive, boolean canBeget, String name, String alias, String breed,
+            String colors,
+            String birthDate, String joinerSince) {
+        super(id, gender, alive, canBeget, name, alias, birthDate, joinerSince);
         this.breed = breed;
         this.colors = colors;
     }
 
-    public String getColorPattern() {
+    public String getBreed() {
         return breed;
     }
 
@@ -22,10 +24,10 @@ public class Dog extends Animal {
     }
 
     public Map<String, Object> getDataMap() {
-        Map<String, Object> catData = getParentAnimalClassDataMap();
-        catData.put("breed", breed);
-        catData.put("colors", colors);
-        return catData;
+        Map<String, Object> dogData = super.getDataMap();
+        dogData.put("breed", getBreed());
+        dogData.put("colors", getColors());
+        return dogData;
     }
 
     public String toString() {
@@ -33,7 +35,7 @@ public class Dog extends Animal {
     }
 
     public static Dog getDummyDog() {
-        return new Dog(-1, 'f', true, "Testy test",
-                "test dog", "Pitbull", "red,white");
+        return new Dog(-1, 'f', true, true, "Testy test",
+                "test dog", "Pitbull", "red,white", "1998-07-04", "1998-07-04");
     }
 }
