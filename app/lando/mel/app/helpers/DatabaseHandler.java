@@ -1,10 +1,10 @@
-package helpers;
+package lando.mel.app.helpers;
 
 import java.util.Set;
-import database.CatJDBC;
-import database.DogJDBC;
-import animals.Cat;
-import animals.Dog;
+import lando.mel.app.database.jdbc.CatJDBC;
+import lando.mel.app.database.jdbc.DogJDBC;
+import lando.mel.app.models.animal.Cat;
+import lando.mel.app.models.animal.Dog;
 
 public class DatabaseHandler {
 

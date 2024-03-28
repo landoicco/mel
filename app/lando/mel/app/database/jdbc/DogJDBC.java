@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import animals.Dog;
+import lando.mel.app.database.ConnectionHandler;
+import lando.mel.app.database.dao.DogDAO;
+import lando.mel.app.models.animal.Dog;
 
 public class DogJDBC implements DogDAO {
 
@@ -21,24 +23,18 @@ public class DogJDBC implements DogDAO {
 
     @Override
     public int insert(Dog dog) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
         int rows = 0;
-        try {
-            conn = ConnectionHandler.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT);
+        try (Connection conn = ConnectionHandler.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(SQL_INSERT)) {
             stmt.setString(1, dog.getName());
-            stmt.setString(2, dog.getGender());
-            stmt.setString(3, dog.getBirthDate());
+            stmt.setString(2, String.valueOf(dog.getGender()));
+            stmt.setString(3, String.valueOf(dog.getBirthDate()));
 
             // Count of modified rows
             rows = stmt.executeUpdate();
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } finally {
-            // ConnectionHandler.close(stmt);
-            // ConnectionHandler.close(conn);
         }
         return rows;
     }

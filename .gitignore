@@ -2,3 +2,7 @@ docs/
 # mods/
 *.class
 */target/
+
+# Intellij Idea
+.idea/
+**/*.iml

@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import animals.Cat;
+import lando.mel.app.database.ConnectionHandler;
+import lando.mel.app.models.animal.Cat;
+import lando.mel.app.database.dao.CatDAO;
 
 public class CatJDBC implements CatDAO {
 
@@ -23,10 +25,10 @@ public class CatJDBC implements CatDAO {
     public int insert(Cat cat) {
         int rows = 0;
         try (Connection conn = ConnectionHandler.getConnection();
-                PreparedStatement stmt = conn.prepareStatement(SQL_INSERT)) {
+             PreparedStatement stmt = conn.prepareStatement(SQL_INSERT)) {
             stmt.setString(1, cat.getName());
-            stmt.setString(2, cat.getGender());
-            stmt.setString(3, cat.getBirthDate());
+            stmt.setString(2, String.valueOf(cat.getGender()));
+            stmt.setString(3, String.valueOf(cat.getBirthDate()));
 
             // Count of modified rows
             rows = stmt.executeUpdate();
