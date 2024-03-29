@@ -17,7 +17,7 @@ public class CatJDBC implements CatDAO {
 
     private static final String SQL_SELECT = "SELECT cat_id, gender, is_alive, can_beget, name, alias, color_pattern, colors, birth_date, joiner_since FROM cats";
     private static final String SQL_INSERT = "INSERT INTO cats (gender, is_alive, can_beget, name, alias, color_pattern, colors, birth_date, joiner_since) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String SQL_UPDATE = "UPDATE cat SET name=?, gender=?, birthDate=?";
+    private static final String SQL_UPDATE = "UPDATE cats SET gender=?, is_alive=?, can_beget=?, name=?, alias=?, color_pattern=?, colors=?, birth_date=?, joiner_since=? WHERE cat_id=?";
     private static final String SQL_DELETE = "DELETE FROM cats WHERE cat_id=?";
 
     @Override
@@ -80,7 +80,27 @@ public class CatJDBC implements CatDAO {
 
     @Override
     public int update(Cat cat) {
-        return -1;
+        int rows = 0;
+        try (Connection conn = ConnectionHandler.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(SQL_UPDATE)) {
+            stmt.setString(1, AsString(cat.getGender()));
+            stmt.setString(2, AsString(cat.isAlive()));
+            stmt.setString(3, AsString(cat.canBeget()));
+            stmt.setString(4, cat.getName());
+            stmt.setString(5, cat.getAlias());
+            stmt.setString(6, cat.getColorPattern());
+            stmt.setString(7, cat.getColors());
+            stmt.setString(8, AsString(cat.getBirthDate()));
+            stmt.setString(9, AsString(cat.getJoinerSince()));
+
+            stmt.setInt(10, cat.getId());
+
+            // Count of modified rows
+            rows = stmt.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rows;
     }
 
     @Override
