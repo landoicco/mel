@@ -49,6 +49,10 @@ rm -rf \
 javac \
     --module-path mods -d app/target \
     app/lando/mel/app/models/animal/**.java \
+    app/lando/mel/app/helpers/**.java \
+    app/lando/mel/app/database/dao/**.java \
+    app/lando/mel/app/database/jdbc/**.java \
+    app/lando/mel/app/database/**.java \
     app/lando/mel/app/Main.java \
     app/module-info.java
 
