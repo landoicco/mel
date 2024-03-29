@@ -2,7 +2,9 @@ package lando.mel.app.database.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import lando.mel.app.database.ConnectionHandler;
@@ -13,14 +15,42 @@ import static lando.mel.app.helpers.StringUtils.*;
 
 public class CatJDBC implements CatDAO {
 
-    private static final String SQL_SELECT = "SELECT id_cat, name, gender, birthDate FROM cats";
+    private static final String SQL_SELECT = "SELECT cat_id, gender, is_alive, can_beget, name, alias, color_pattern, colors, birth_date, joiner_since FROM cats";
     private static final String SQL_INSERT = "INSERT INTO cats (gender, is_alive, can_beget, name, alias, color_pattern, colors, birth_date, joiner_since) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE cat SET name=?, gender=?, birthDate=?";
     private static final String SQL_DELETE = "DELETE FROM cat WHERE id_cat=?";
 
     @Override
     public List<Cat> select() {
-        return null;
+        Cat cat;
+        List<Cat> cats = new ArrayList<>();
+
+        try (Connection conn = ConnectionHandler.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(SQL_SELECT);
+             ResultSet rs = stmt.executeQuery()
+        ) {
+
+            while (rs.next()) {
+                int dogId = rs.getInt("cat_id");
+                String gender = rs.getString("gender");
+                boolean isAlive = rs.getBoolean("is_alive");
+                boolean canBeget = rs.getBoolean("can_beget");
+                String name = rs.getString("name");
+                String alias = rs.getString("alias");
+                String breed = rs.getString("color_pattern");
+                String colors = rs.getString("colors");
+                String birthDate = rs.getString("birth_date");
+                String joinerSince = rs.getString("joiner_since");
+
+                cat = new Cat(dogId, gender.charAt(0), isAlive, canBeget, name,
+                        alias, breed, colors, birthDate, joinerSince);
+
+                cats.add(cat);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cats;
     }
 
     @Override
