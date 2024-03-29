@@ -18,7 +18,7 @@ public class CatJDBC implements CatDAO {
     private static final String SQL_SELECT = "SELECT cat_id, gender, is_alive, can_beget, name, alias, color_pattern, colors, birth_date, joiner_since FROM cats";
     private static final String SQL_INSERT = "INSERT INTO cats (gender, is_alive, can_beget, name, alias, color_pattern, colors, birth_date, joiner_since) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE cat SET name=?, gender=?, birthDate=?";
-    private static final String SQL_DELETE = "DELETE FROM cat WHERE id_cat=?";
+    private static final String SQL_DELETE = "DELETE FROM cats WHERE cat_id=?";
 
     @Override
     public List<Cat> select() {
@@ -47,7 +47,7 @@ public class CatJDBC implements CatDAO {
 
                 cats.add(cat);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return cats;
@@ -85,7 +85,18 @@ public class CatJDBC implements CatDAO {
 
     @Override
     public int delete(Cat cat) {
-        return -1;
+        int rows = 0;
+        try (Connection conn = ConnectionHandler.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(SQL_DELETE)) {
+
+            stmt.setInt(1, cat.getId());
+
+            // Count of modified rows
+            rows = stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rows;
     }
 
 }

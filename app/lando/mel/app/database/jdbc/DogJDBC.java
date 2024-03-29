@@ -18,7 +18,7 @@ public class DogJDBC implements DogDAO {
     private static final String SQL_SELECT = "SELECT dog_id, gender, is_alive, can_beget, name, alias, breed, colors, birth_date, joiner_since FROM dogs";
     private static final String SQL_INSERT = "INSERT INTO dogs (gender, is_alive, can_beget, name, alias, breed, colors, birth_date, joiner_since) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE dog SET name=?, gender=?, birthDate=?";
-    private static final String SQL_DELETE = "DELETE FROM dog WHERE id_dog=?";
+    private static final String SQL_DELETE = "DELETE FROM dogs WHERE dog_id=?";
 
     @Override
     public List<Dog> select() {
@@ -47,7 +47,7 @@ public class DogJDBC implements DogDAO {
 
                 dogs.add(dog);
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return dogs;
@@ -84,7 +84,18 @@ public class DogJDBC implements DogDAO {
 
     @Override
     public int delete(Dog dog) {
-        return -1;
+        int rows = 0;
+        try (Connection conn = ConnectionHandler.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(SQL_DELETE)) {
+
+            stmt.setInt(1, dog.getId());
+
+            // Count of modified rows
+            rows = stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rows;
     }
 
 }
