@@ -51,6 +51,7 @@ javac \
     --module-path mods -d envreader/target \
     envreader/lando/mel/envreader/api/**.java \
     envreader/lando/mel/envreader/impl/**.java \
+    envreader/lando/mel/envreader/lookup/**.java \
     envreader/lando/mel/envreader/Main.java \
     envreader/module-info.java
 
