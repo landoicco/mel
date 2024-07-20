@@ -1,16 +1,24 @@
 package lando.mel.app.database;
 
+import lando.mel.envreader.api.EnvironmentVariableProvider;
+import lando.mel.envreader.lookup.ServiceProvider;
+
+import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionHandler {
 
-    private static final String DB_URL = "jdbc:mariadb://mel_db:3306/animals";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "admin";
+    private static final EnvironmentVariableProvider provider = ServiceProvider.FindSingleEnvironmentVariableProvider();
+    private static final Path path = Path.of(".env");
+
+    private static final String DB_URL = provider.getVariableValue(path, "DB_URL");
+    private static final String DB_USER = provider.getVariableValue(path, "DB_USER");
+    private static final String DB_PASSWORD = provider.getVariableValue(path, "DB_PASSWORD");
 
     public static Connection getConnection() throws SQLException {
+        System.out.println(provider);
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
     }
 }

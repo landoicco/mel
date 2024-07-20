@@ -18,11 +18,11 @@ public class LocalEnvironmentVariablesProvider implements EnvironmentVariablePro
             String[] pairs;
             while ((currentLine = reader.readLine()) != null) {
                 // Support comments
-                if (currentLine.startsWith("#")) continue;
+                if (currentLine.contains("#")) continue;
 
                 // Get key/value 2D array
                 pairs = currentLine.split("=");
-                if (pairs[1].equals(value)) return pairs[0];
+                if (value.equals(pairs[1])) return pairs[0];
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -40,11 +40,11 @@ public class LocalEnvironmentVariablesProvider implements EnvironmentVariablePro
             String[] pairs;
             while ((currentLine = reader.readLine()) != null) {
                 // Support comments
-                if (currentLine.startsWith("#")) continue;
+                if (currentLine.contains("#")) continue;
 
                 // Get key/value 2D array
                 pairs = currentLine.split("=");
-                if (pairs[0].equals(key)) return pairs[1];
+                if (key.equals(pairs[0])) return pairs[1];
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -52,7 +52,6 @@ javac \
     envreader/lando/mel/envreader/api/**.java \
     envreader/lando/mel/envreader/impl/**.java \
     envreader/lando/mel/envreader/lookup/**.java \
-    envreader/lando/mel/envreader/Main.java \
     envreader/module-info.java
 
 jar -cvf mods/lando.mel.envreader.jar -C envreader/target .
@@ -61,17 +60,17 @@ jar -cvf mods/lando.mel.envreader.jar -C envreader/target .
 #   Compile and JAR the lando.mel.app
 ######################################
 
-#javac \
-#    --module-path mods -d app/target \
-#    app/lando/mel/app/models/animal/**.java \
-#    app/lando/mel/app/helpers/**.java \
-#    app/lando/mel/app/database/dao/**.java \
-#    app/lando/mel/app/database/jdbc/**.java \
-#    app/lando/mel/app/database/**.java \
-#    app/lando/mel/app/Main.java \
-#    app/module-info.java
+javac \
+    --module-path mods -d app/target \
+    app/lando/mel/app/models/animal/**.java \
+    app/lando/mel/app/helpers/**.java \
+    app/lando/mel/app/database/dao/**.java \
+    app/lando/mel/app/database/jdbc/**.java \
+    app/lando/mel/app/database/**.java \
+    app/lando/mel/app/Main.java \
+    app/module-info.java
 
-#jar -cvf mods/lando.mel.app.jar -C app/target .
+jar -cvf mods/lando.mel.app.jar -C app/target .
 
 # This line run the app
 # java --module-path mods --module lando.mel.app/lando.mel.app.Main
