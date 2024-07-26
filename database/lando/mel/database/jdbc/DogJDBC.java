@@ -1,4 +1,6 @@
-package lando.mel.app.database.jdbc;
+package lando.mel.database.jdbc;
+
+import static lando.mel.database.helpers.StringUtils.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,11 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import lando.mel.app.database.ConnectionHandler;
-import lando.mel.app.database.dao.DogDAO;
+import lando.mel.database.ConnectionHandler;
+import lando.mel.database.dao.DogDAO;
 import lando.mel.models.animal.Dog;
-
-import static lando.mel.app.helpers.StringUtils.*;
 
 public class DogJDBC implements DogDAO {
 

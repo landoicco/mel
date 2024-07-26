@@ -1,8 +1,9 @@
-package lando.mel.app.helpers;
+package lando.mel.database.helpers;
 
 import java.util.Set;
-import lando.mel.app.database.jdbc.CatJDBC;
-import lando.mel.app.database.jdbc.DogJDBC;
+
+import lando.mel.database.jdbc.CatJDBC;
+import lando.mel.database.jdbc.DogJDBC;
 import lando.mel.models.animal.Cat;
 import lando.mel.models.animal.Dog;
 

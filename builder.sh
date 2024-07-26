@@ -11,9 +11,10 @@ _  _ ____ _       ___  _  _ _ _    ___  ____ ____    ____ ____ ____ _ ___  ___ \
 #   Clean existing modules
 #############################
 rm \
-    mods/lando.mel.app.jar \
+    mods/lando.mel.database.jar \
     mods/lando.mel.cli.jar \
     mods/lando.mel.envreader.jar \
+    mods/lando.mel.models.jar \
     mods/picocli.jar
 
 ######################################
@@ -21,7 +22,7 @@ rm \
 ######################################
 
 rm -rf \
-    app/target cli/target picocli/target envreader/target
+    database/target cli/target picocli/target envreader/target models/target
 
 #############################
 #   Compile and JAR picocli
@@ -68,19 +69,19 @@ javac \
 jar -cvf mods/lando.mel.models.jar -C models/target .
 
 ######################################
-#   Compile and JAR the lando.mel.app
+#   Compile and JAR the lando.mel.database
 ######################################
 
 javac \
-    --module-path mods -d app/target \
-    app/lando/mel/app/helpers/**.java \
-    app/lando/mel/app/database/dao/**.java \
-    app/lando/mel/app/database/jdbc/**.java \
-    app/lando/mel/app/database/**.java \
-    app/lando/mel/app/Main.java \
-    app/module-info.java
+    --module-path mods -d database/target \
+    database/lando/mel/database/helpers/**.java \
+    database/lando/mel/database/dao/**.java \
+    database/lando/mel/database/jdbc/**.java \
+    database/lando/mel/database/**.java \
+    database/lando/mel/database/Main.java \
+    database/module-info.java
 
-jar -cvf mods/lando.mel.app.jar -C app/target .
+jar -cvf mods/lando.mel.database.jar -C database/target .
 
 # This line run the app
 # java --module-path mods --module lando.mel.app/lando.mel.app.Main

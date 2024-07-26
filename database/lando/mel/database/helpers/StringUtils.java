@@ -1,4 +1,4 @@
-package lando.mel.app.helpers;
+package lando.mel.database.helpers;
 
 public class StringUtils {
     public static String AsString(Object s) {

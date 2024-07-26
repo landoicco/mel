@@ -1,9 +1,9 @@
-package lando.mel.app;
+package lando.mel.database;
 
-import lando.mel.app.database.dao.CatDAO;
-import lando.mel.app.database.dao.DogDAO;
-import lando.mel.app.database.jdbc.DogJDBC;
-import lando.mel.app.database.jdbc.CatJDBC;
+import lando.mel.database.dao.CatDAO;
+import lando.mel.database.dao.DogDAO;
+import lando.mel.database.jdbc.CatJDBC;
+import lando.mel.database.jdbc.DogJDBC;
 import lando.mel.models.animal.Cat;
 import lando.mel.models.animal.Dog;
 

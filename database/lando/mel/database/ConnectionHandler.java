@@ -1,4 +1,4 @@
-package lando.mel.app.database;
+package lando.mel.database;
 
 import lando.mel.envreader.api.EnvironmentVariableProvider;
 import lando.mel.envreader.lookup.ServiceProvider;
