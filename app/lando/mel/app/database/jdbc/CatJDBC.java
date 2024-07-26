@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lando.mel.app.database.ConnectionHandler;
-import lando.mel.app.models.animal.Cat;
+import lando.mel.models.animal.Cat;
 import lando.mel.app.database.dao.CatDAO;
 
 import static lando.mel.app.helpers.StringUtils.*;

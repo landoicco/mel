@@ -1,4 +1,4 @@
-package lando.mel.app.models.animal;
+package lando.mel.models.animal;
 
 import java.time.LocalDate;
 import java.util.HashMap;

@@ -3,4 +3,5 @@ module lando.mel.app {
 
     requires java.sql;
     requires lando.mel.envreader;
+    requires lando.mel.models;
 }

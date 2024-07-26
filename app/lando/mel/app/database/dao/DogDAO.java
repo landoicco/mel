@@ -2,7 +2,7 @@ package lando.mel.app.database.dao;
 
 import java.util.List;
 
-import lando.mel.app.models.animal.Dog;
+import lando.mel.models.animal.Dog;
 
 public interface DogDAO {
 

@@ -2,7 +2,7 @@ package lando.mel.app.database.dao;
 
 import java.util.List;
 
-import lando.mel.app.models.animal.Cat;
+import lando.mel.models.animal.Cat;
 
 public interface CatDAO {
 

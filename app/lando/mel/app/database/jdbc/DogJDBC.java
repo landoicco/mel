@@ -9,7 +9,7 @@ import java.util.List;
 
 import lando.mel.app.database.ConnectionHandler;
 import lando.mel.app.database.dao.DogDAO;
-import lando.mel.app.models.animal.Dog;
+import lando.mel.models.animal.Dog;
 
 import static lando.mel.app.helpers.StringUtils.*;
 

@@ -3,8 +3,8 @@ package lando.mel.app.helpers;
 import java.util.Set;
 import lando.mel.app.database.jdbc.CatJDBC;
 import lando.mel.app.database.jdbc.DogJDBC;
-import lando.mel.app.models.animal.Cat;
-import lando.mel.app.models.animal.Dog;
+import lando.mel.models.animal.Cat;
+import lando.mel.models.animal.Dog;
 
 public class DatabaseHandler {
 

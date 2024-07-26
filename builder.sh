@@ -57,12 +57,22 @@ javac \
 jar -cvf mods/lando.mel.envreader.jar -C envreader/target .
 
 ######################################
+#   Compile and JAR the lando.mel.models
+######################################
+
+javac \
+    --module-path mods -d models/target \
+    models/lando/mel/models/animal/**.java \
+    models/module-info.java
+
+jar -cvf mods/lando.mel.models.jar -C models/target .
+
+######################################
 #   Compile and JAR the lando.mel.app
 ######################################
 
 javac \
     --module-path mods -d app/target \
-    app/lando/mel/app/models/animal/**.java \
     app/lando/mel/app/helpers/**.java \
     app/lando/mel/app/database/dao/**.java \
     app/lando/mel/app/database/jdbc/**.java \
