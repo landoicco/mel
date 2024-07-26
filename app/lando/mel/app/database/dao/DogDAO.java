@@ -12,6 +12,6 @@ public interface DogDAO {
 
     int update(Dog dog);
 
-    int delete(Dog dog);
+    int delete(int id);
 
 }

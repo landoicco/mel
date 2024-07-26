@@ -12,6 +12,6 @@ public interface CatDAO {
 
     int update(Cat cat);
 
-    int delete(Cat cat);
+    int delete(int id);
 
 }

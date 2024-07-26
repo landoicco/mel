@@ -104,12 +104,12 @@ public class CatJDBC implements CatDAO {
     }
 
     @Override
-    public int delete(Cat cat) {
+    public int delete(int id) {
         int rows = 0;
         try (Connection conn = ConnectionHandler.getConnection();
              PreparedStatement stmt = conn.prepareStatement(SQL_DELETE)) {
 
-            stmt.setInt(1, cat.getId());
+            stmt.setInt(1, id);
 
             // Count of modified rows
             rows = stmt.executeUpdate();

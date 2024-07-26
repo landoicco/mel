@@ -1,7 +1,9 @@
 package lando.mel.app;
 
-import lando.mel.app.database.jdbc.CatJDBC;
+import lando.mel.app.database.dao.CatDAO;
+import lando.mel.app.database.dao.DogDAO;
 import lando.mel.app.database.jdbc.DogJDBC;
+import lando.mel.app.database.jdbc.CatJDBC;
 import lando.mel.models.animal.Cat;
 import lando.mel.models.animal.Dog;
 
@@ -9,7 +11,7 @@ public class Main {
     public static void main(String... args) {
         System.out.println("== MEL: Animals Management app ==");
 
-        DogJDBC d = new DogJDBC();
+        DogDAO d = new DogJDBC();
         d.insert(Dog.getDummyDog());
         d.insert(Dog.getDummyDog());
         d.insert(Dog.getDummyDog());
@@ -20,7 +22,7 @@ public class Main {
         System.out.println(d.select());
         System.out.println("Total dogs in DB: " + d.select().size());
 
-        CatJDBC c = new CatJDBC();
+        CatDAO c = new CatJDBC();
         c.insert(Cat.getDummyCat());
         c.insert(Cat.getDummyCat());
         c.insert(Cat.getDummyCat());
@@ -37,8 +39,15 @@ public class Main {
 
         // Test dog object to update
         d.update(new Dog(3, 'f', false, false, "GGGGGGGGG DOG", "", "", "", "1998-07-04", "1998-07-04"));
-        System.out.println("Dog number 3 deleted from DB");
+        System.out.println("Dog number 3 updated from DB");
         System.out.println(d.select());
         System.out.println("Total dogs in DB: " + d.select().size());
+
+        // Test delete cat
+        c.delete(2);
+
+        // Test delete dog
+        d.delete(3);
+        d.delete(1);
     }
 }
