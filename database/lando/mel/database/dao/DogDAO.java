@@ -1,8 +1,8 @@
-package database;
+package lando.mel.database.dao;
 
 import java.util.List;
 
-import animals.Dog;
+import lando.mel.models.animal.Dog;
 
 public interface DogDAO {
 
@@ -12,6 +12,6 @@ public interface DogDAO {
 
     int update(Dog dog);
 
-    int delete(Dog dog);
+    int delete(int id);
 
 }

@@ -1,4 +1,9 @@
 docs/
+.env
 # mods/
 *.class
 */target/
+
+# Intellij Idea
+.idea/
+**/*.iml

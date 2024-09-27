@@ -1,8 +1,8 @@
-package database;
+package lando.mel.database.dao;
 
 import java.util.List;
 
-import animals.Cat;
+import lando.mel.models.animal.Cat;
 
 public interface CatDAO {
 
@@ -12,6 +12,6 @@ public interface CatDAO {
 
     int update(Cat cat);
 
-    int delete(Cat cat);
+    int delete(int id);
 
 }

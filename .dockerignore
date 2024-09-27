@@ -3,7 +3,7 @@
 Dockerfile
 README.md
 docker-compose.yml
-database/
+db-init/
 app/README.md
 cli/README.md
 picocli/README.md
